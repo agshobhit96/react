@@ -1,0 +1,14 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "My react practice app",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Shobhit Agrawal",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
