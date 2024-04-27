@@ -47,3 +47,10 @@
 .res-logo {
     width: 100%;
 }
+.filter-container {
+    display: flex;
+}
+
+.filterBtn {
+    margin-left: 10px;
+}
