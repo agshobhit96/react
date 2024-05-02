@@ -54,3 +54,27 @@
 .filterBtn {
     margin-left: 10px;
 }
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin: 20px 0;
+}
+
+.shimmer-card {
+    height: 320px;
+    width: 200px;
+    background-color: #f4f4f4;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid rgba(100, 100, 100, 0);
+}
+
+.loginBtn {
+    background-color: #999;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
