@@ -26,7 +26,7 @@ const BodyComponent = () => {
         fetchData();
     },[]);
 
-    fetchData = () => {
+    const fetchData = () => {
         // MAKE API CALL    
         setListOfRes(resItems);
         setFilteredListOfRes(resItems);
@@ -59,6 +59,7 @@ const BodyComponent = () => {
                 {
                     filteredListOfRes.map((item, index) => {
                         return (
+                            // Using array index as key is not recommended
                             <ResCards key={index} resList={item}/>
                         );
                     })
