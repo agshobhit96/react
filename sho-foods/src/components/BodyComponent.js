@@ -26,10 +26,22 @@ const BodyComponent = () => {
         fetchData();
     },[]);
 
-    const fetchData = () => {
-        // MAKE API CALL    
-        setListOfRes(resItems);
-        setFilteredListOfRes(resItems);
+    const fetchData = async () => {
+            
+        // setListOfRes(resItems);
+        // setFilteredListOfRes(resItems);
+
+        // MAKE API CALL
+
+        const resData = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9687095&lng=77.75200319999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        
+        const jsonData = await resData.json();
+        console.log(jsonData);
+        const res = jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        console.log(res);
+        setListOfRes(res);
+        setFilteredListOfRes(res);
     }
 
     if (listOfRes.length === 0) {
