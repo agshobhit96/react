@@ -2,6 +2,7 @@ import ResCards from "./ResCards";
 import resItems from "../utils/mockData";
 import { useEffect, useState } from "react";
 import ShimmerCards from "./ShimmerCards";
+import { Link } from "react-router-dom";
 
 
 const BodyComponent = () => {
@@ -72,7 +73,9 @@ const BodyComponent = () => {
                     filteredListOfRes.map((item, index) => {
                         return (
                             // Using array index as key is not recommended
-                            <ResCards key={index} resList={item}/>
+                            <Link key={item.info.id} to={"/restaurant/"+item.info.id}>
+                                <ResCards key={index} resList={item}/>
+                            </Link>
                         );
                     })
                 }

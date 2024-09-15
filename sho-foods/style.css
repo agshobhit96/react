@@ -78,3 +78,8 @@
     border: none;
     cursor: pointer;
 }
+.restaurant-page {
+    width: 70%;
+    margin: auto;
+    background: rgb(245, 245, 245);
+}
