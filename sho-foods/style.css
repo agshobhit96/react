@@ -83,3 +83,9 @@
     margin: auto;
     background: rgb(245, 245, 245);
 }
+.memberCard {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #333;
+}
