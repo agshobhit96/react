@@ -1,9 +1,10 @@
-import ResCards from "./ResCards";
+import ResCards, {ResCardWithLabel} from "./ResCards";
 import resItems from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ShimmerCards from "./ShimmerCards";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 
 const BodyComponent = () => {
@@ -11,6 +12,9 @@ const BodyComponent = () => {
     const [searchText, setSearchText] = useState("");
     const [filteredListOfRes, setFilteredListOfRes] = useState([]);
 
+    const ResCardWithLabelInst = ResCardWithLabel(ResCards);
+
+    const userInfo = useContext(UserContext);
 
     const filterBtnClicked = () => {
         console.log("Filter Button Clicked function called  ", listOfRes);
@@ -74,6 +78,12 @@ const BodyComponent = () => {
                     filterBtnClicked();
                    
                 }}>Top Rated Restaurants</button>
+
+                <div className="search-container">
+                    <input type="text" placeholder="User" value={userInfo.loggedInUser} 
+                    onChange={(e)=> userInfo.setUserName(e.target.value)}/>
+        
+                </div>
             </div>
             <div className="cards-container">
                 {
@@ -81,7 +91,10 @@ const BodyComponent = () => {
                         return (
                             // Using array index as key is not recommended
                             <Link key={item.info.id} to={"/restaurant/"+item.info.id}>
-                                <ResCards key={index} resList={item}/>
+                                {/** Put a condition to add label on some restaurant cards */
+                                    item.info.avgRating > 4.2 ? <ResCardWithLabelInst resList={item} /> : <ResCards key={index} resList={item}/>
+                                }
+                    
                             </Link>
                         );
                     })

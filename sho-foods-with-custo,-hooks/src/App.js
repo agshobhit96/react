@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/HeaderComponent";
 import BodyComponent from "./components/BodyComponent";
@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ErrorPage from "./components/Error";
 import ResMenu from "./components/ResMenu";
+import UserContext from "./utils/UserContext";
 
 /*
 ** Header
@@ -22,12 +23,24 @@ import ResMenu from "./components/ResMenu";
 
 
 const AppLayout = () => {
+    const [userName, setUserName] = useState('');
+
+    useEffect(() => {
+        // Api call
+        // response from API
+        const res = {
+            name: "Shobhit"
+        }
+        setUserName(res.name);
+    },[])
     return (
-        <div className="app">
-            <HeaderComponent />
-            <Outlet />
-            {/* <FooterComponent /> */}
-        </div>
+        <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+            <div className="app">
+                <HeaderComponent />
+                <Outlet />
+                {/* <FooterComponent /> */}
+            </div>
+        </UserContext.Provider>
     );
 };
 
