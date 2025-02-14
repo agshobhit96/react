@@ -118,6 +118,15 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid #bbb;
     margin: 25px;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
 }
