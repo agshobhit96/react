@@ -6,6 +6,8 @@ const Contact = () => {
                 You can contact us at:
                 <a href="mailto:abc@xyz.com"> mail_here </a>
             </p>
+            <input type="text" placeholder="Query"></input>
+            <button>Submit</button>
         </div>
     );
 }
